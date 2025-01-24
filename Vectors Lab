@@ -1,0 +1,112 @@
+//Bryce Lombardo
+//Vectors lab
+//1/23/2025
+
+#include <iostream>
+#include <vector>
+#include<string>
+
+using namespace std;
+
+void greetUser(const vector<string>&names){
+    cout << "Hello ";
+    for(const string& name:names){
+        cout << name;
+    }
+    cout << " it was nice to meet you." << endl;
+
+}
+
+int main()
+{
+   vector<int> num;
+   for(int i =1; i<=10; i++){
+       num.push_back(i);
+   }
+   cout << "The third number is: " << num[2] << endl;
+   num.pop_back();
+   cout << "The remaining numbers are" << endl;
+   for(int number:num){
+       cout << number << endl;
+   }
+  
+   vector<int>total;
+   int choice;
+   int element;
+   
+   do{
+       cout << "\nMenu:\n";
+       cout << "1. add an element\n";
+       cout << "2. Dispaly vector\n";
+       cout << "3. Vector Size \n";
+       cout << "4. Exit \n";
+       cin  >>  choice;
+       
+       switch(choice){
+           case 1:
+           cout << "Enter an integer to add: ";
+           cin  >>  element;
+           total.push_back(element);
+           cout << "Number added" << endl;
+           break;
+         
+           case 2:
+           if(total.empty()){
+               cout << "Vector is empty" << endl;
+           }else{
+               cout << "Vector contains the following numbers: ";
+               for(int totals:total){
+                   cout << totals << ", ";
+               }
+               cout << endl;
+           }
+           break;
+           case 3:
+           cout << "Current size of vector is: " << total.size() << endl;
+           break;
+           
+           case 4:
+           cout << "Exiting program" << endl;
+           break;
+           
+           default:
+           cout << "Invalid selection" << endl;
+       }
+   } while(choice!=4);
+   
+   
+   
+   vector<string>colors;
+   string color;
+   string response;
+   
+   do{
+       cout << "\nEnter your favorite color" << endl;
+       cin  >>  color;
+       colors.push_back(color);
+       cout  <<  "Would you like to enter another favorite color? (y/n)" << endl;
+       cin  >>  response;
+   }
+   while(response=="y"||response=="Y");
+   cout  <<  "Your favorite colors are: ";
+   for(const string&c : colors){
+       cout << c << endl;
+   }
+   
+   
+   int numNames;
+   vector<string>name;
+   string personName;
+   
+   cout << "\nHow many names do you have? ";
+   cin    >>    numNames;
+   cin.ignore();
+   
+   for(int i=0; i<numNames; i++){
+       cout << "Enter name #" << i+1 << ": ";
+       getline(cin,personName);
+       name.push_back(personName);
+   }
+   greetUser(name);
+   return 0;
+}
