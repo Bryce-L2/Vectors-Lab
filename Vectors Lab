@@ -8,9 +8,9 @@
 
 using namespace std;
 
-void greetUser(const vector<string>&names){
+void greetUser(const vector<string>names){
     cout << "Hello ";
-    for(const string& name:names){
+    for(const string name:names){
         cout << name;
     }
     cout << " it was nice to meet you." << endl;
@@ -89,7 +89,7 @@ int main()
    }
    while(response=="y"||response=="Y");
    cout  <<  "Your favorite colors are: ";
-   for(const string&c : colors){
+   for(string c : colors){
        cout << c << endl;
    }
    
